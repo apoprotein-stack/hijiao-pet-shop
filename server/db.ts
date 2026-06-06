@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, products, contactSubmissions } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -87,6 +87,49 @@ export async function getUserByOpenId(openId: string) {
   const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
 
   return result.length > 0 ? result[0] : undefined;
+}
+
+/**
+ * 取得所有商品
+ */
+export async function getAllProducts() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(products);
+}
+
+/**
+ * 根據分類取得商品
+ */
+export async function getProductsByCategory(category: string) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(products).where(eq(products.category, category as any));
+}
+
+/**
+ * 取得单一商品
+ */
+export async function getProductById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(products).where(eq(products.id, id)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+/**
+ * 建立聯絡表單提交
+ */
+export async function createContactSubmission(data: {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+}) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.insert(contactSubmissions).values(data);
+  return result;
 }
 
 // TODO: add feature queries here as your schema grows.
