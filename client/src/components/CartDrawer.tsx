@@ -100,7 +100,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, onCheck
             <span>NT$ {totalAmount.toFixed(0)}</span>
           </div>
           <Button
-            onClick={onCheckout}
+            onClick={() => {
+              onClose();
+              window.location.href = '/checkout';
+            }}
             disabled={items.length === 0}
             className="w-full bg-brand-dark hover:bg-brand-primary text-white rounded-xl font-bold tracking-widest shadow-md transition-all"
           >

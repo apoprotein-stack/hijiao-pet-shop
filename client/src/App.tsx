@@ -10,6 +10,7 @@ import { CartDrawer } from "./components/CartDrawer";
 import { HomePage } from "./pages/HomePage";
 import { ShopPage } from "./pages/ShopPage";
 import { ProductDetailPage } from "./pages/ProductDetailPage";
+import { CheckoutPage } from "./pages/CheckoutPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { useState } from "react";
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/shop" component={ShopPage} />
       <Route path="/product-detail" component={ProductDetailPage} />
+      <Route path="/checkout" component={CheckoutPage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/404" component={NotFound} />

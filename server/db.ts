@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, products, contactSubmissions } from "../drizzle/schema";
+import { InsertUser, users, products, contactSubmissions, orders } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -133,3 +133,33 @@ export async function createContactSubmission(data: {
 }
 
 // TODO: add feature queries here as your schema grows.
+
+/**
+ * 建立訂單
+ */
+export async function createOrder(data: {
+  userId: number;
+  orderNumber: string;
+  totalAmount: string;
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  shippingAddress: string;
+  status?: string;
+  notes?: string;
+}) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.insert(orders).values(data as any);
+  return result;
+}
+
+/**
+ * 根據 ID 取得訂單
+ */
+export async function getOrderById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(orders).where(eq(orders.id, id)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
