@@ -7,20 +7,20 @@ import { Loader2 } from 'lucide-react';
 
 const bannerSlides = [
   {
-    title: '純粹，給牠最溫柔的守護',
-    subtitle: '精選天然草本與植萃複方，回歸毛孩最自然健康的日常陪伴與深層呵護。',
-    badge: 'NATURAL & COMPASSIONATE',
+    title: '人寵共食，一起享受美味',
+    subtitle: '達到人類食用級標準的天然美食。不只是毛孩的零食，更是全家人都能安心享用的美食。',
+    badge: 'HUMAN-GRADE INGREDIENTS',
     image: 'https://images.unsplash.com/photo-1541599540903-216a46ca1bf0?auto=format&fit=crop&w=600&q=80',
   },
   {
-    title: '守護毛孩亮麗的日常',
-    subtitle: '專為亞洲多雨潮濕氣候設計，低敏溫和配方，打造健康的肌膚皮毛防護罩。',
-    badge: 'VETERINARY FORMULATED',
+    title: '純粹天然，給寶貝最溫柔的守護',
+    subtitle: '精選天然原肉與草本成分，無添加防腐劑、人工香料與色素。就像阿公麵攤上的每一碟小菜。',
+    badge: 'NATURAL & COMPASSIONATE',
     image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80',
   },
   {
-    title: '美味凍乾，毛孩最愛',
-    subtitle: '採用頂級原肉，低溫凍乾保留營養，無添加防腐劑，給寶貝最安心的零嘴。',
+    title: '低溫凍乾美味，全家人的準寶',
+    subtitle: '採用頂級原肉，低溫凍乾保留最多營養。每一款產品都經過嚴格食品安全檢驗，人寵都能安心享用。',
     badge: 'PREMIUM FREEZE-DRIED',
     image: 'https://images.unsplash.com/photo-1608454367599-c1139e6443ef?auto=format&fit=crop&w=600&q=80',
   },
@@ -78,18 +78,27 @@ export const HomePage: React.FC = () => {
                   <span className="inline-block px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs font-semibold tracking-widest rounded-full">
                     {slide.badge}
                   </span>
-                  <h1 className="text-3xl sm:text-5xl font-bold tracking-wider text-brand-dark leading-tight">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-brand-dark leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-base sm:text-lg text-brand-muted max-w-md">
+                  <p className="text-lg sm:text-xl text-brand-muted leading-relaxed">
                     {slide.subtitle}
                   </p>
-                  <Button
-                    onClick={() => setLocation('/shop')}
-                    className="inline-block px-8 py-3.5 bg-brand-dark hover:bg-brand-primary text-white rounded-full font-medium tracking-wider shadow-lg shadow-brand-dark/10 hover:shadow-brand-primary/20 transform hover:-translate-y-0.5 transition-all duration-300"
-                  >
-                    立即探索商品
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                    <Button
+                      onClick={() => setLocation('/shop')}
+                      className="bg-brand-primary hover:bg-brand-primary/90 text-white px-8 py-3 rounded-lg font-semibold"
+                    >
+                      立即探索商品
+                    </Button>
+                    <Button
+                      onClick={() => setLocation('/about')}
+                      variant="outline"
+                      className="border-brand-primary text-brand-primary hover:bg-brand-primary/5 px-8 py-3 rounded-lg font-semibold"
+                    >
+                      了解我們的故事
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -97,125 +106,152 @@ export const HomePage: React.FC = () => {
         </div>
 
         {/* 輪播指示器 */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
           {bannerSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-2 h-2 rounded-full transition-all ${
-                index === currentSlide
-                  ? 'bg-brand-primary w-8'
-                  : 'bg-brand-muted/40 hover:bg-brand-muted/60'
+                index === currentSlide ? 'bg-brand-primary w-8' : 'bg-white/50'
               }`}
+              aria-label={`Slide ${index + 1}`}
             />
           ))}
         </div>
       </section>
 
-      {/* 精選商品區塊 */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-dark mb-4">精選商品</h2>
-          <p className="text-brand-muted max-w-2xl mx-auto">
-            嚴選天然優質食材，每一款都是毛孩健康與快樂的保證
-          </p>
-        </div>
-
-        {productsQuery.isLoading ? (
-          <div className="flex justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-brand-primary" />
+      {/* 精選商品 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-dark mb-4">
+              精選商品
+            </h2>
+            <p className="text-lg text-brand-muted">
+              嚴選天然優質食材，每一款都是毛孩健康與快樂的保證
+            </p>
           </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {productsQuery.data?.slice(0, 6).map((product) => (
-              <div
-                key={product.id}
-                className="bg-white rounded-2xl overflow-hidden border border-brand-border p-4 shadow-sm hover:shadow-md transition-all cursor-pointer group"
-              >
-                {/* 商品圖片 */}
-                <div className="bg-brand-light aspect-square flex items-center justify-center rounded-xl mb-4 select-none border border-brand-border/40 overflow-hidden relative group-hover:scale-105 transition-transform">
-                  {product.imageUrl ? (
+
+          {productsQuery.isLoading ? (
+            <div className="flex justify-center items-center py-12">
+              <Loader2 className="animate-spin text-brand-primary" size={40} />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {productsQuery.data?.slice(0, 6).map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-white rounded-2xl border border-brand-border overflow-hidden shadow-sm hover:shadow-lg transition-all"
+                >
+                  <div className="aspect-square bg-brand-light overflow-hidden">
                     <img
-                      src={product.imageUrl}
+                      src={product.imageUrl || 'https://via.placeholder.com/300'}
                       alt={product.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform"
                     />
-                  ) : (
-                    <span className="text-5xl">{product.emoji || '🥩'}</span>
-                  )}
-                </div>
-
-                {/* 商品資訊 */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs px-2 py-1 bg-brand-primary/10 text-brand-primary rounded-full font-semibold">
-                      {product.category === 'cat'
-                        ? '🐱 貓咪'
-                        : product.category === 'dog'
-                        ? '🐶 狗狗'
-                        : '🥩 凍乾'}
-                    </span>
                   </div>
-                  <h3 className="text-sm font-bold text-brand-dark group-hover:text-brand-primary transition-colors">
-                    {product.name}
-                  </h3>
-                  <div className="flex items-center justify-between">
-                    <div className="text-brand-primary font-bold text-sm">
-                      NT$ {parseFloat(product.price).toFixed(0)}
+                  <div className="p-6 space-y-4">
+                    <div>
+                      <span className="text-xs font-semibold text-brand-primary uppercase tracking-widest">
+                        {product.category}
+                      </span>
+                      <h3 className="text-xl font-bold text-brand-dark mt-2">
+                        {product.name}
+                      </h3>
                     </div>
-                    {product.originalPrice && (
-                      <div className="text-xs text-brand-muted line-through">
-                        NT$ {parseFloat(product.originalPrice).toFixed(0)}
-                      </div>
-                    )}
+                    <p className="text-sm text-brand-muted line-clamp-2">
+                      {product.description}
+                    </p>
+                    <div className="flex items-center justify-between pt-4 border-t border-brand-border">
+                      <span className="text-2xl font-bold text-brand-primary">
+                        ${product.price}
+                      </span>
+                      <Button
+                        onClick={() => handleAddToCart(product)}
+                        className="bg-brand-primary hover:bg-brand-primary/90 text-white px-4 py-2 rounded-lg"
+                      >
+                        加入購物車
+                      </Button>
+                    </div>
                   </div>
-                  <Button
-                    onClick={() => handleAddToCart(product)}
-                    className="w-full bg-brand-dark hover:bg-brand-primary text-white rounded-lg font-medium transition-all"
-                  >
-                    加入購物車
-                  </Button>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
 
-        <div className="text-center mt-12">
-          <Button
-            onClick={() => setLocation('/shop')}
-            className="px-8 py-3 bg-brand-dark hover:bg-brand-primary text-white rounded-full font-medium tracking-wider"
-          >
-            查看全部商品
-          </Button>
+          <div className="text-center mt-12">
+            <Button
+              onClick={() => setLocation('/shop')}
+              className="bg-brand-primary hover:bg-brand-primary/90 text-white px-8 py-3 rounded-lg font-semibold text-lg"
+            >
+              查看全部商品
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* 品牌特色介紹 */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-light">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl mb-4">🌿</div>
-              <h3 className="text-lg font-bold text-brand-dark mb-2">天然食材</h3>
+      {/* 品牌特色 */}
+      <section className="py-16 bg-brand-light">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-dark text-center mb-12">
+            為什麼選擇嗨嚼？
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white rounded-2xl p-8 text-center">
+              <div className="text-5xl mb-4">👨‍👩‍👧‍🐕</div>
+              <h3 className="text-xl font-bold text-brand-dark mb-3">人寵共食</h3>
               <p className="text-sm text-brand-muted">
-                嚴選天然原肉與草本成分，無添加防腐劑與人工香料
+                達到人類食用級標準，全家人都能安心享用
               </p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">❤️</div>
-              <h3 className="text-lg font-bold text-brand-dark mb-2">寵物健康</h3>
+            <div className="bg-white rounded-2xl p-8 text-center">
+              <div className="text-5xl mb-4">🌿</div>
+              <h3 className="text-xl font-bold text-brand-dark mb-3">天然純粹</h3>
               <p className="text-sm text-brand-muted">
-                獸醫推薦配方，專為毛孩量身打造的營養補充
+                嚴選天然食材，無添加防腐劑與人工香料
               </p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl mb-4">✨</div>
-              <h3 className="text-lg font-bold text-brand-dark mb-2">品質保證</h3>
+            <div className="bg-white rounded-2xl p-8 text-center">
+              <div className="text-5xl mb-4">❄️</div>
+              <h3 className="text-xl font-bold text-brand-dark mb-3">低溫凍乾</h3>
               <p className="text-sm text-brand-muted">
-                低溫凍乾工藝，鎖住營養與美味，給寶貝最好的
+                保留最多營養與美味的工藝技術
               </p>
             </div>
+            <div className="bg-white rounded-2xl p-8 text-center">
+              <div className="text-5xl mb-4">✓</div>
+              <h3 className="text-xl font-bold text-brand-dark mb-3">品質保證</h3>
+              <p className="text-sm text-brand-muted">
+                每批產品都經過嚴格食品安全檢驗
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA 區塊 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-dark mb-6">
+            準備好加入嗨嚼家族了嗎？
+          </h2>
+          <p className="text-lg text-brand-muted mb-8">
+            讓我們一起為毛孩帶來健康、快樂的每一天
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              onClick={() => setLocation('/shop')}
+              className="bg-brand-primary hover:bg-brand-primary/90 text-white px-8 py-3 rounded-lg font-semibold text-lg"
+            >
+              開始購物
+            </Button>
+            <Button
+              onClick={() => setLocation('/contact')}
+              variant="outline"
+              className="border-brand-primary text-brand-primary hover:bg-brand-primary/5 px-8 py-3 rounded-lg font-semibold text-lg"
+            >
+              聯絡我們
+            </Button>
           </div>
         </div>
       </section>

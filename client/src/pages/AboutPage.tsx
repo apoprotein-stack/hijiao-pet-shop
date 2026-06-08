@@ -66,12 +66,12 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="bg-white rounded-2xl border border-brand-border p-8 shadow-sm hover:shadow-md transition-all">
-              <div className="text-5xl mb-4">🌿</div>
+              <div className="text-5xl mb-4">👨‍👩‍👧‍🐕</div>
               <h3 className="text-xl font-bold text-brand-dark mb-3">
-                天然純粹
+                人寵共食
               </h3>
               <p className="text-brand-muted">
-                嚴選天然原肉與草本成分，無添加防腐劑、人工香料與色素。我們相信自然就是給毛孩最好的禮物。
+                嗨嚼的每一款產品都達到人類食用級標準。不只是寵物零食，更是全家人都能安心享用的天然美食。
               </p>
             </div>
 
@@ -106,9 +106,9 @@ export const AboutPage: React.FC = () => {
               <div className="flex gap-4">
                 <div className="text-2xl flex-shrink-0">✓</div>
                 <div>
-                  <h4 className="font-bold text-brand-dark">獸醫推薦配方</h4>
+                  <h4 className="font-bold text-brand-dark">人類食用級標準</h4>
                   <p className="text-sm text-brand-muted">
-                    與專業獸醫合作，為毛孩量身打造
+                    達到人類食品安全標準，全家人都能享用
                   </p>
                 </div>
               </div>
@@ -135,9 +135,9 @@ export const AboutPage: React.FC = () => {
               <div className="flex gap-4">
                 <div className="text-2xl flex-shrink-0">✓</div>
                 <div>
-                  <h4 className="font-bold text-brand-dark">貓狗專區設計</h4>
+                  <h4 className="font-bold text-brand-dark">營養均衡配方</h4>
                   <p className="text-sm text-brand-muted">
-                    針對不同寵物的營養需求精心設計
+                    針對貓狗不同需求精心設計，營養完整
                   </p>
                 </div>
               </div>
@@ -188,10 +188,10 @@ export const AboutPage: React.FC = () => {
               </div>
               <div className="order-1 md:order-2">
                 <h3 className="text-2xl font-bold text-brand-dark mb-4">
-                  發展：與獸醫的合作
+                  發展：人寵共食的實踐
                 </h3>
                 <p className="text-brand-muted leading-relaxed">
-                  我們與多位專業獸醫合作，根據毛孩的營養需求研發各類產品。每一款商品都經過科學驗證，確保能為毛孩帶來最好的健康效果。就像阿公精心挑選給毛孩的小菜一樣，我們對每一個細節都充滿用心。
+                  我們不斷研發符合人類食用級標準的天然食材配方。每一款商品都經過嚴格的食品安全檢驗，確保不僅是毛孩的佳選，也是全家人都能安心享用的美食。就像阿公精心挑選給毛孩的小菜一樣，我們對每一個細節都充滿用心。
                 </p>
               </div>
             </div>
@@ -199,10 +199,10 @@ export const AboutPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-bold text-brand-dark mb-4">
-                  現在：為毛孩帶來快樂
+                  現在：人寵共食的美好時光
                 </h3>
                 <p className="text-brand-muted leading-relaxed">
-                  今天，嗨嚼已經成為數千位毛孩家長的信任選擇。默默的故事與那些無辜的眼神，持續激勵著我們創新，不斷推出更好的產品。我們希望每一隻毛孩都能像阿公麵攤前的大黃狗和小貓一樣，享受到最溫暖的陪伴與最好的照顧。
+                  今天，嗨嚼已經成為數千位毛孩家長的信任選擇。默默的故事與那些無辜的眼神，持續激勵著我們創新，不斷推出更好的產品。我們的願景是，讓每一個家庭都能享受人寵共食的準寶時光——就像阿公麵攤上的每一碗粗茶、每一碟小菜，都是給整個家庭帶來的準寶。
                 </p>
               </div>
               <div className="bg-brand-light rounded-2xl overflow-hidden h-64 flex items-center justify-center">
