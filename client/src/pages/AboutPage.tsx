@@ -171,8 +171,8 @@ export const AboutPage: React.FC = () => {
               </div>
               <div className="bg-brand-light rounded-2xl overflow-hidden h-64 flex items-center justify-center">
                 <img
-                  src="/manus-storage/momodog_afb72d4f.png"
-                  alt="起源"
+                  src="/manus-storage/momo-mascot_e5fb4af6.png"
+                  alt="起源 - 默默柴犬"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -181,8 +181,8 @@ export const AboutPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="bg-brand-light rounded-2xl overflow-hidden h-64 flex items-center justify-center order-2 md:order-1">
                 <img
-                  src="/manus-storage/heychew-product_6b1395b6.png"
-                  alt="發展"
+                  src="/manus-storage/heychewp4_6b60efad.png"
+                  alt="發展 - 豬里肌肉乾薄片"
                   className="w-full h-full object-cover"
                 />
               </div>
