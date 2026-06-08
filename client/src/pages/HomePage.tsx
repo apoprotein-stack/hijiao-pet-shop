@@ -10,19 +10,25 @@ const bannerSlides = [
     title: '人寵共食，一起享受美味',
     subtitle: '達到人類食用級標準的天然美食。不只是毛孩的零食，更是全家人都能安心享用的美食。',
     badge: 'HUMAN-GRADE INGREDIENTS',
-    image: 'https://images.unsplash.com/photo-1541599540903-216a46ca1bf0?auto=format&fit=crop&w=600&q=80',
+    image: '/manus-storage/momodog_afb72d4f.png',
   },
   {
     title: '純粹天然，給寶貝最溫柔的守護',
     subtitle: '精選天然原肉與草本成分，無添加防腐劑、人工香料與色素。就像阿公麵攤上的每一碟小菜。',
     badge: 'NATURAL & COMPASSIONATE',
-    image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80',
+    image: '/manus-storage/brand-story_202dd01a.png',
   },
   {
     title: '低溫凍乾美味，全家人的準寶',
     subtitle: '採用頂級原肉，低溫凍乾保留最多營養。每一款產品都經過嚴格食品安全檢驗，人寵都能安心享用。',
     badge: 'PREMIUM FREEZE-DRIED',
-    image: 'https://images.unsplash.com/photo-1608454367599-c1139e6443ef?auto=format&fit=crop&w=600&q=80',
+    image: '/manus-storage/heychew-product_6b1395b6.png',
+  },
+  {
+    title: '阿公的故事，我們的根',
+    subtitle: '就像阿公麵攤上的每一碟小菜，我們為每一隻毛孩精心挑選最好的天然美食。',
+    badge: 'HUMAN-PET SHARED MEALS',
+    image: '/manus-storage/heychewbrandp2_462fd328.webp',
   },
 ];
 
@@ -64,7 +70,7 @@ export const HomePage: React.FC = () => {
                 index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
               style={{
-                backgroundImage: `url(${slide.image})`,
+                backgroundImage: slide.image.startsWith('/manus-storage/') ? `url(${slide.image})` : `url(${slide.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
