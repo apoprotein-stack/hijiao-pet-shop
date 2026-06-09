@@ -1,7 +1,12 @@
 {
   "name": "hijiao-pet-shop",
   "scripts": {
-    "build": "cd client && vite build",
-    "dev": "cd client && vite"
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "pnpm": {
+    "overrides": {
+      "tailwindcss>nanoid": "3.3.7"
+    }
   }
 }
