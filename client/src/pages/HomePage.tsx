@@ -30,6 +30,12 @@ const bannerSlides = [
     badge: 'HUMAN-PET SHARED MEALS',
     image: '/manus-storage/heychewbrandp2_462fd328.webp',
   },
+  {
+    title: '阿公的陪伴，永遠的回憶',
+    subtitle: '在夕陽下，阿公、孩子、狗狗和貓咪一起享受生活的美好。這就是嗨嚼想要守護的家庭時光。',
+    badge: 'FAMILY MOMENTS',
+    image: '/manus-storage/heychewbrandp3_5af16f49.png',
+  },
 ];
 
 export const HomePage: React.FC = () => {
@@ -47,6 +53,11 @@ export const HomePage: React.FC = () => {
   }, []);
 
   const handleAddToCart = (product: any) => {
+    // 購物車功能已移除
+    return;
+  };
+
+  const handleOldAddToCart = (product: any) => {
     addItem({
       id: product.id,
       name: product.name,
@@ -173,10 +184,10 @@ export const HomePage: React.FC = () => {
                         ${product.price}
                       </span>
                       <Button
-                        onClick={() => handleAddToCart(product)}
+                        onClick={() => setLocation(`/product/${product.id}`)}
                         className="bg-brand-primary hover:bg-brand-primary/90 text-white px-4 py-2 rounded-lg"
                       >
-                        加入購物車
+                        查看詳情
                       </Button>
                     </div>
                   </div>

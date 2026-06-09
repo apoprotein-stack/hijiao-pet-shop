@@ -91,19 +91,6 @@ export const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
 
           {/* 右側控制按鈕 */}
           <div className="flex items-center gap-4">
-            {/* 購物車按鈕 */}
-            <button
-              className="relative p-2.5 hover:bg-brand-light rounded-full transition-colors duration-200"
-              onClick={onCartClick}
-            >
-              <ShoppingCart className="w-6 h-6 text-brand-dark" />
-              {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-primary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
-                  {totalItems}
-                </span>
-              )}
-            </button>
-
             {/* 行動版漢堡選單按鈕 */}
             <button
               className="md:hidden p-2 hover:bg-brand-light rounded-lg transition-colors"
