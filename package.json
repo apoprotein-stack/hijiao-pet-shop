@@ -1,9 +1,7 @@
 {
   "name": "hijiao-pet-shop",
   "scripts": {
-    "dev": "tsx server/_core/index.ts",
-    "build": "pnpm run build:client && tsc -p tsconfig.server.json",
-    "build:client": "cd client && vite build",
-    "vercel-build": "pnpm run build"
+    "build": "cd client && vite build",
+    "dev": "cd client && vite"
   }
 }
